@@ -1,0 +1,707 @@
+/* Variables de Color */
+:root {
+    --color-black: #1a1a1a;
+    --color-white: #ffffff;
+    --color-gray: #333333;
+    --color-light-gray: #f0f0f0;
+    --color-accent-blue: #007bff; /* Azul vibrante */
+    --color-accent-red: #dc3545; /* Rojo vibrante */
+    --color-whatsapp: #25D366; /* Color de WhatsApp */
+    --color-instagram: #E1306C; /* Color de Instagram */
+    --color-facebook: #3b5998; /* Color de Facebook */
+}
+
+/* Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--color-gray);
+    background-color: var(--color-white);
+    overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header y Navegación */
+header {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-accent-blue); /* Acento en el logo */
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--color-accent-red);
+}
+
+/* Menú Hamburguesa (Mobile) */
+.burger-menu {
+    display: none; /* Oculto por defecto en desktop */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger-menu span {
+    height: 3px;
+    width: 25px;
+    background-color: var(--color-white);
+    margin-bottom: 5px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animación del menú hamburguesa */
+.burger-menu.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    /*background: url('assets/imagen logotipo de tienda urbana.jpeg') no-repeat center center/cover;*/
+    background: url('assets/imagen de locales peatonal.jpg') no-repeat center center/cover;
+    /*background: red;*/
+    /*background: url('assets/campera inflable.jpg') no-repeat center center/cover;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-white);
+    position: relative;
+    padding-top: 80px; /* Espacio para el header fijo */
+}
+
+.hero::before { /* Capa de superposición para mejor legibilidad */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen para que el texto resalte */
+}
+
+.hero-content {
+    z-index: 1; /* Asegura que el contenido esté por encima de la capa de superposición */
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    background-color: var(--color-accent-blue);
+    color: var(--color-white);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Tono más oscuro de azul */
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: var(--color-gray);
+    margin-top: 30px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-black);
+    transform: translateY(-3px);
+}
+
+/* Secciones Generales */
+section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--color-light-gray); /* Fondo suave para secciones */
+    transition: background-color 0.5s ease;
+}
+
+section:nth-of-type(even) { /* Alterna el color de fondo */
+    background-color: var(--color-white);
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--color-gray);
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after { /* Subrayado decorativo */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-accent-red);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Sobre Nosotros */
+.about-us p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* Catálogo */
+.catalog .container {
+    padding: 60px 20px; /* Aumentamos el padding superior e inferior */
+}
+
+.catalog h2 {
+    font-size: 3.0em; /* Título más grande */
+    margin-bottom: 50px; /* Más espacio debajo del título */
+    letter-spacing: 2px; /* Más espacio entre letras */
+}
+
+.catalog h2::after { /* Subrayado decorativo */
+    width: 80px; /* Subrayado más largo */
+    height: 5px; /* Subrayado más grueso */
+    margin: 15px auto 0; /* Más espacio entre el texto y el subrayado */
+    border-radius: 3px;
+}
+
+.catalog .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado min-width para más flexibilidad */
+    gap: 40px; /* Más espacio entre los productos */
+    margin-top: 50px; /* Más espacio desde el título */
+    padding: 0 20px; /* Añade un poco de padding horizontal */
+    padding-bottom: 30px; /* Espacio inferior antes del botón */
+}
+
+.product-item {
+    background-color: var(--color-white);
+    border-radius: 15px; /* Bordes más redondeados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transición más suave */
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--color-light-gray); /* Borde sutil para definir el card */
+    display: flex; /* Usamos flexbox para alinear contenido dentro del ítem */
+    flex-direction: column; /* El contenido se apila verticalmente */
+    justify-content: space-between; /* Distribuye el espacio para el precio y texto */
+    height: 100%; /* Asegura que todos los items tengan la misma altura dentro de la grilla */
+}
+
+.product-item:hover {
+    transform: translateY(-15px) scale(1.03); /* Efecto hover más dinámico: eleva y agranda */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Sombra aún más fuerte en hover */
+}
+
+.product-item img {
+    width: 100%; /* La imagen ocupa el 100% del ancho de su contenedor */
+    height: 250px; /* ALTURA FIJA: Asegura que todas las imágenes tengan la misma altura */
+    object-fit: cover; /* MUY IMPORTANTE: Recorta la imagen para cubrir el área sin distorsionarla */
+    object-position: center; /* Centra la imagen dentro de su "caja" */
+    border-radius: 10px; /* Bordes redondeados para la imagen */
+    margin-bottom: 15px;
+    transition: transform 0.4s ease, filter 0.4s ease; /* Transición para la imagen */
+    filter: brightness(0.95); /* Ligeramente más oscura por defecto */
+}
+
+.product-item:hover img {
+    transform: scale(1.1); /* Zoom más pronunciado al pasar el mouse */
+    filter: brightness(1.05); /* Ligeramente más brillante al pasar el mouse */
+}
+
+.product-item h3 {
+    font-size: 1.5em;
+    color: var(--color-black);
+    margin-bottom: 10px;
+    font-weight: 700; /* Negrita para los títulos */
+}
+
+.product-item p {
+    font-size: 0.95em;
+    color: var(--color-gray);
+    margin-bottom: 15px;
+    min-height: 40px; /* Altura mínima para la descripción */
+    display: -webkit-box; /* Para limitar el texto a dos líneas */
+    -webkit-line-clamp: 2; /* Limita a 2 líneas */
+    -webkit-box-orient: vertical; /* Necesario para line-clamp */
+    overflow: hidden; /* Oculta el texto que exceda las 2 líneas */
+    text-overflow: ellipsis; /* Añade puntos suspensivos si se recorta */
+}
+
+.product-item .price {
+    font-size: 1.8em; /* PRECIO MÁS GRANDE */
+    font-weight: 800; /* Precio muy en negrita */
+    color: var(--color-accent-red); /* Precio en color de acento rojo para destacar */
+    display: block; /* Asegura que ocupe su propia línea */
+    margin-top: auto; /* Empuja el precio al final del contenedor flex */
+    text-align: right; /* Alinea el precio a la derecha */
+    padding-top: 10px; /* Espacio superior para el precio */
+    border-top: 1px solid var(--color-light-gray); /* Separador visual para el precio */
+}
+
+.catalog .btn-secondary {
+    display: inline-block;
+    background-color: var(--color-gray);
+    color: var(--color-white);
+    padding: 18px 40px; /* Un poco más grande */
+    text-decoration: none;
+    border-radius: 8px; /* Más redondeado */
+    font-weight: 700;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: 40px; /* Más espacio desde la galería */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.catalog .btn-secondary:hover {
+    background-color: var(--color-black);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada en hover */
+}
+
+
+/* Medios de Pago */
+.payment-methods ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.payment-methods li {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--color-black);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.payment-methods li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.payment-methods li img { /* Mantenemos por si hay alguna imagen aún */
+    height: 30px;
+    width: auto;
+    margin-right: 15px;
+}
+
+.payment-methods .payment-icon {
+    font-size: 1.8em; /* Ajusta el tamaño de los iconos de pago */
+    margin-right: 15px;
+    color: var(--color-accent-blue);
+}
+
+/* Estilos para el mensaje de facilidad de compra */
+.easy-purchase-message {
+    margin-top: 50px; /* Mayor margen superior para separarlo */
+    padding: 25px 30px; /* Espaciado interno generoso */
+    background: linear-gradient(45deg, var(--color-accent-blue), #0056b3); /* Fondo degradado llamativo */
+    color: var(--color-white); /* Texto blanco para contraste */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Sombra para profundidad */
+    max-width: 600px; /* Ancho máximo para que no se extienda demasiado */
+    margin-left: auto; /* Centra el div */
+    margin-right: auto; /* Centra el div */
+    text-align: center; /* Asegura que el texto esté centrado */
+    transform: rotate(-2deg); /* Pequeña rotación para llamar la atención */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para hover */
+}
+
+.easy-purchase-message:hover {
+    transform: rotate(0deg) scale(1.03); /* Endereza y agranda ligeramente al pasar el mouse */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.easy-purchase-message p {
+    font-size: 1.8em; /* Tamaño de fuente del texto */
+    font-weight: 700; /* Texto en negrita para impacto */
+    letter-spacing: 1px; /* Espaciado entre letras para mejor lectura */
+    line-height: 1.4; /* Espaciado entre líneas */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra para el texto */
+    margin-bottom: 0; /* Elimina margen inferior extra del párrafo */
+}
+
+
+/* Contacto */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Cambiado a center para mejor alineación en pantallas medianas */
+    gap: 40px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.contact-info .location,
+.contact-info .details {
+    flex: 1;
+    min-width: 320px; /* Ajustado min-width para mejor responsividad */
+    max-width: 550px; /* Limitar el ancho máximo para que no se estire demasiado */
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+    font-size: 1.8em;
+    color: var(--color-black);
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* Estilos para los enlaces de contacto (WhatsApp, redes sociales) */
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 10px;
+    font-size: 1.5em; /* Tamaño del texto del número de WhatsApp */
+}
+
+.contact-link:hover {
+    color: var(--color-accent-red);
+    transform: translateX(5px);
+}
+
+/* Estilos para los iconos de contacto (WhatsApp, etc.) */
+.contact-icon-fa {
+    font-size: 3.5em; /* Tamaño del icono de WhatsApp */
+    margin-right: 20px; /* Margen derecho para el icono de WhatsApp */
+    color: var(--color-whatsapp);
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover .contact-icon-fa {
+    color: var(--color-accent-red);
+}
+
+.contact-info iframe {
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.social-media {
+    margin-top: 20px;
+    display: flex;
+    gap: 40px; /* Espacio entre los "bloques" de icono+texto de redes sociales */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    justify-content: center; /* Centra los bloques en pantallas más grandes */
+}
+
+/* Estilos específicos para los botones de redes sociales */
+.social-link {
+    display: flex; /* Usamos flexbox para el contenido interno */
+    flex-direction: column; /* Icono arriba, texto abajo */
+    align-items: center; /* Centra el icono y el texto horizontalmente */
+    justify-content: center; /* Centra verticalmente el contenido */
+    width: 120px; /* Ancho del "bloque" para acomodar el texto */
+    height: auto; /* Altura automática para el contenido */
+    padding: 15px 10px; /* Añade padding para espacio interno */
+    border-radius: 15px; /* Ligeramente más redondeado, no un círculo perfecto */
+    background-color: var(--color-gray);
+    color: var(--color-white);
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.social-link:hover {
+    transform: translateY(-5px) scale(1.05); /* Ligeramente más sutil */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon-fa {
+    font-size: 4.5em; /* Tamaño del icono dentro del círculo de redes sociales */
+    color: var(--color-white);
+    margin-bottom: 10px; /* Espacio entre el icono y el texto */
+}
+
+.social-text {
+    font-size: 1em; /* Tamaño de fuente para el texto de usuario */
+    font-weight: 600;
+    color: var(--color-white);
+    text-align: center;
+    word-break: break-word; /* Asegura que el texto largo se rompa si es necesario */
+}
+
+/* Colores específicos para cada red social al pasar el mouse */
+.social-link:nth-child(1):hover { /* Instagram */
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+}
+
+.social-link:nth-child(2):hover { /* Facebook */
+    background-color: var(--color-facebook);
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9em;
+}
+
+/* Animaciones de Scroll Suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: var(--color-black);
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .catalog .container {
+        padding: 40px 20px;
+    }
+
+    .catalog h2 {
+        font-size: 2.5em;
+        margin-bottom: 40px;
+    }
+
+    .catalog h2::after {
+        width: 60px;
+        height: 4px;
+        margin-top: 10px;
+    }
+
+    .catalog .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajuste para tablets */
+        gap: 30px;
+        margin-top: 40px;
+        padding-bottom: 20px;
+    }
+
+    .product-item {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .product-item img {
+        height: 200px; /* Ajuste en tablet */
+        border-radius: 8px;
+    }
+
+    .product-item h3 {
+        font-size: 1.3em;
+    }
+
+    .product-item p {
+        font-size: 0.9em;
+        min-height: 35px;
+    }
+
+    .product-item .price {
+        font-size: 1.5em;
+    }
+
+    .catalog .btn-secondary {
+        padding: 15px 30px;
+        font-size: 1.1em;
+        margin-top: 30px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        align-items: center; /* Centrar los bloques de contacto en tablet */
+    }
+
+    .contact-info .location,
+    .contact-info .details {
+        max-width: 90%; /* Ajustar el ancho máximo para que no sea demasiado grande */
+        margin: 0 auto; /* Centrar los bloques */
+    }
+
+    .social-media {
+        gap: 30px; /* Gap para tablets */
+        justify-content: center; /* Centra los bloques en tablet */
+    }
+
+    .contact-icon-fa {
+        font-size: 3em; /* Tamaño del icono de WhatsApp en tablet */
+        margin-right: 15px;
+    }
+
+    .social-link {
+        width: 100px; /* Ancho del "bloque" en tablet */
+        padding: 12px 8px;
+    }
+
+    .social-icon-fa {
+        font-size: 3.8em; /* Tamaño del icono en tablet */
+    }
+
+    .social-text {
+        font-size: 0.9em; /* Tamaño del texto en tablet */
+    }
+
+    .easy-purchase-message {
+        margin-top: 40px; /* Ajuste en tablet */
+        padding: 20px 25px;
+        transform: rotate(0deg); /* Quita la rotación en tablet si molesta */
+    }
+
+    .easy-purchase-message p {
+        font-size: 1.5em; /* Ajuste de tamaño de fuente en tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5em;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .catalog .container {
+        padding:
+    }
