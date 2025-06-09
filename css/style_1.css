@@ -592,10 +592,11 @@ address p strong {
 }
 
 .payment-item img {
-    width: 80px;
-    height: 80px;
+    width: 80px; /* Tamaño más pequeño para los iconos */
+    height: 80px; /* Asegura que sean cuadrados */
     margin-bottom: 20px;
-    object-fit: contain;
+    object-fit: contain; /* Para que la imagen se ajuste sin recortarse */
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.1)); /* Sutil sombra para darles un poco de profundidad */
 }
 
 .payment-item h3 {
@@ -876,4 +877,23 @@ address p strong {
 
 .social-link:nth-child(2):hover { /* Facebook */
     background-color: var(--color-facebook);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.btn-primary, .btn-secondary {
+    /* ... otras propiedades ... */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición de color y movimiento */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Tono más oscuro de azul */
+    transform: translateY(-3px); /* Se eleva ligeramente */
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-black);
+    transform: translateY(-3px); /* Se eleva ligeramente */
 }
